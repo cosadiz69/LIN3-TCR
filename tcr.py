@@ -60,6 +60,7 @@ helpMessage =""" Chivas Bot
 [Ban︎] Share Contact
 [Unban︎] Share Contact
 [Banlist︎]
+[Bot Restart/Reboot] 
 [Cek ban]
 [Cv mid]
 [Cv ︎invite:「mid」]
@@ -133,6 +134,11 @@ def NOTIFIED_READ_MESSAGE(op):
             pass
     except:
         pass
+
+def restart_program():
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+
 
 
 def bot(op):
@@ -1735,7 +1741,15 @@ def bot(op):
                             cl.sendImageWithURL(msg.to, path)
                         except:
                             pass
-                print "[Command]dp executed"			
+                print "[Command]dp executed"
+		
+	    elif msg.text in ["Bot restart","Reboot"]:
+		if msg.from_ in admin:
+		    cl.sendText(msg.to, "Bot Has Been Restarted...")
+		    restart_program()
+		    print "@Restart"
+		else:
+		    cl.sendText(msg.to, "No Access")
 #------------------------------------------------------------------
             elif msg.text in ["Ban"]:
                 wait["wblacklist"] = True
