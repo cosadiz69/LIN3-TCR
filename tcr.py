@@ -3,7 +3,7 @@
 import LINETCR
 from LINETCR.lib.curve.ttypes import *
 from datetime import datetime
-import time,random,sys,json,codecs,threading,glob,re
+import time,random,sys,os,json,codecs,threading,glob,re
 
 cl = LINETCR.LINE()
 cl.login(qr=True)
@@ -78,12 +78,12 @@ Cmid = kc.getProfile().mid
 Bots=[mid,Amid,Bmid,Cmid]
 admin=["YOUR_MID_HERE"]
 wait = {
-    'contact':True,
-    'autoJoin':True,
-    'autoCancel':{"on":True,"members":1},
-    'leaveRoom':True,
+    'contact':False,
+    'autoJoin':False,
+    'autoCancel':{"on":True,"members":0},
+    'leaveRoom':False,
     'timeline':True,
-    'autoAdd':True,
+    'autoAdd':False,
     'message':"Thanks for add me",
     "lang":"JP",
     "comment":"Thanks for add me",
@@ -91,12 +91,12 @@ wait = {
     "commentBlack":{},
     "wblack":False,
     "dblack":False,
-    "clock":True,
-    "cName":"Chivas ",
+    "clock":False,
+    #"cName":"Chivas ",
     "blacklist":{},
     "wblacklist":False,
     "dblacklist":False,
-    "protectionOn":True,
+    "protectionOn":False,
     "atjointicket":False
     }
 
